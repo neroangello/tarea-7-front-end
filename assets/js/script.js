@@ -58,7 +58,7 @@ function domData(data){
         const contenedor = document.getElementById("cards");
         
         data.forEach(resultado => {
-            contenedor.appendChild(crearTarjeta(resultado.nombre, resultado.imagen));
+            contenedor.appendChild(crearTarjeta(resultado.nombre, resultado.imagen, resultado.tipo));
         });
 
     } catch (error) {
@@ -82,7 +82,8 @@ async function showData(){
             let data2 = await getDataPokeContent(data.results[i].url);
             let pokemon = {
                 "nombre": data.results[i].name,
-                "imagen": data2.sprites.front_default
+                "imagen": data2.sprites.front_default,
+                "tipo": data2.types[0].type.name                
             }
 
             pokemons.push(pokemon);
@@ -98,10 +99,11 @@ async function showData(){
 
 // Se crea la estructura de la tarjeta con los datos 
 // que vienen del servicio
-function crearTarjeta(nombreTarjeta, rutaImagen){
+function crearTarjeta(nombreTarjeta, rutaImagen, tipo){
 
     tarjeta = document.createElement("article");
     tarjeta.className = "card"
+    tarjeta.classList.add(validarTipo(tipo));    
     div_t = document.createElement("div");
     div_t.className = "text"
     img = document.createElement("img");
@@ -114,6 +116,18 @@ function crearTarjeta(nombreTarjeta, rutaImagen){
     tarjeta.appendChild(div_t);   
 
     return tarjeta;
+
+}
+
+function validarTipo(parTipo){
+    const tipos = ['grass', 'water', 'fire', 'bug', 'normal']
+
+    if (tipos.includes(parTipo) === true){
+        return parTipo;
+    }else{
+        return 'default';
+    }
+
 
 }
 

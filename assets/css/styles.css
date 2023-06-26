@@ -1,3 +1,15 @@
+/*$grass_color: #78C850;
+$fire_color: #F05030;
+$bug_color: #A8B820;
+$water_color: #3899F8;
+$normal_color: #A8A090;
+$default_color: #F2F2F2;
+$card_text_hover_color: white;
+$card_text_color: black;*/
+@font-face {
+  font-family: "Pokemon";
+  src: url(../fonts/Pokemon.ttf);
+}
 h1 {
   color: blue;
 }
@@ -10,6 +22,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
+  justify-content: center;
 }
 
 .card {
@@ -17,10 +30,20 @@ h2 {
   margin: 10px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+}
+
+.card:hover {
+  box-shadow: none;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
 }
 
 .card img {
   max-width: 100%;
+  width: 5em;
+  height: 5em;
 }
 
 .card .text {
@@ -37,6 +60,32 @@ h2 {
 
 .text {
   text-align: center;
+  font-family: "Pokemon";
+  font-size: 2em;
+}
+
+.grass {
+  background-color: rgba(120, 200, 80, 0.5);
+}
+
+.fire {
+  background-color: rgba(240, 80, 48, 0.5);
+}
+
+.bug {
+  background-color: rgba(168, 184, 32, 0.5);
+}
+
+.water {
+  background-color: rgba(56, 153, 248, 0.5);
+}
+
+.normal {
+  background-color: rgba(168, 160, 144, 0.5);
+}
+
+.default {
+  background-color: rgb(242, 242, 242);
 }
 
 /*# sourceMappingURL=styles.css.map */
